@@ -140,7 +140,13 @@ public class Main {
                 "      <ItemType>Entree</ItemType>\n" +
                 "      <Quantity>1</Quantity>\n" +
                 "      <Price>0.00</Price>\n" +
-                "      <SubItems />\n" +
+                "      <SubItems />" +
+                "      <Condiments>" +
+                "           <Description>ADD LG. AM CHEESE</Description>" +
+                "           <Description>ADD LETTUCE</Description>" +
+                "           <Description>NO PICKLE</Description>" +
+                "           <Description>NO ONION</Description>" +
+                "      </Condiments>\n" +
                 "   </Item>\n" +
                 "   <Item>\n" +
                 "      <Id>SD0I03</Id>\n" +
@@ -183,6 +189,23 @@ public class Main {
                             eElement.getElementsByTagName("Name").item(0).getTextContent() + " at " +
                             eElement.getElementsByTagName("Price").item(0).getTextContent()
                     );
+                    try {
+                        NodeList condis = eElement.getElementsByTagName("Condiments");
+                        //System.out.println();
+                        //System.out.println(condis.getLength());
+                        //System.out.println(condis);
+                        for(int x = 0; x < condis.getLength(); x++){
+                            Node nCondi = condis.item(x);
+                            if(nCondi.getNodeType() == Node.ELEMENT_NODE) {
+                                Element nElement = (Element) nCondi;
+                                for(int z = 0; z < nElement.getElementsByTagName("Description").getLength(); z++){
+                                    System.out.println(" - " + nElement.getElementsByTagName("Description").item(z).getTextContent());
+                                }
+                            }
+                        }
+                    } catch (Exception ignored){
+
+                    }
                 }
             }
         } else {
