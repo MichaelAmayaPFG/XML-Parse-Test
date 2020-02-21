@@ -191,9 +191,6 @@ public class Main {
                     );
                     try {
                         NodeList condis = eElement.getElementsByTagName("Condiments");
-                        //System.out.println();
-                        //System.out.println(condis.getLength());
-                        //System.out.println(condis);
                         for(int x = 0; x < condis.getLength(); x++){
                             Node nCondi = condis.item(x);
                             if(nCondi.getNodeType() == Node.ELEMENT_NODE) {
@@ -203,6 +200,7 @@ public class Main {
                                 }
                             }
                         }
+
                     } catch (Exception ignored){
 
                     }
